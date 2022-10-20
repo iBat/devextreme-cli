@@ -1,0 +1,38 @@
+{
+  "extends": [
+      "config:base"
+  ],
+  "includeForks": true,
+  "semanticCommits": "enabled",
+  "rangeStrategy": "bump",
+  "baseBranches": [
+      "master"
+  ],
+  "labels": [
+      "dependencies"
+  ],
+  "vulnerabilityAlerts": {
+      "enabled": true,
+      "automerge": true
+  },
+  "packageRules": [
+      {
+          "matchPackageNames": [ "typescript", "typescript-min" ],
+          "matchUpdateTypes": [ "major", "minor" ],
+          "enabled": false
+      },
+      {
+          "matchPackagePatterns": [ "*" ],
+          "matchUpdateTypes": [ "minor", "patch" ],
+          "automerge": true
+      },
+      {
+          "matchPackagePatterns": [ "*" ],
+          "matchUpdateTypes": [ "major" ],
+          "enabled": false
+      }
+  ],
+  "reviewers": [
+      "team:devextreme-devops"
+  ]
+}
